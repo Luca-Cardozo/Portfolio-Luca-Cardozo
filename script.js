@@ -63,9 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isDeleting) {
             typeSpeed = 50;
-            charIndex--;
-        } else {
-            charIndex++;
         }
 
         if (!isDeleting && charIndex === textToType.length) {
@@ -74,6 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             typeSpeed = 500; // Pause before restarting
+        }
+
+        if (isDeleting) {
+            charIndex--;
+        } else {
+            charIndex++;
         }
 
         setTimeout(typeEffect, typeSpeed);
